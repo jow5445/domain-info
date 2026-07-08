@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM Elements
+
     const domainInput = document.getElementById('domain-input');
     const lookupBtn = document.getElementById('lookup-btn');
     const recordTypes = document.querySelectorAll('.record-type');
@@ -11,14 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const historyList = document.getElementById('history-list');
     const clearHistoryBtn = document.getElementById('clear-history');
     
-    // Current selected record type
     let currentRecordType = 'A';
     
-    // Initialize history from localStorage
     let lookupHistory = JSON.parse(localStorage.getItem('dnsLookupHistory')) || [];
     renderHistory();
     
-    // Event Listeners
     lookupBtn.addEventListener('click', performLookup);
     domainInput.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') performLookup();
@@ -40,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
     copyResultsBtn.addEventListener('click', copyResultsToClipboard);
     clearHistoryBtn.addEventListener('click', clearHistory);
     
-    // Functions
     function performLookup() {
         const domain = domainInput.value.trim();
         
@@ -49,18 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Validate domain format
         if (!isValidDomain(domain)) {
             showError('Please enter a valid domain name');
             return;
         }
         
-        // Show loader and hide previous results/errors
         loader.style.display = 'block';
         resultsContainer.style.display = 'none';
         errorMessage.style.display = 'none';
         
-        // Simulate API call (in a real app, you would use a real DNS lookup API)
         setTimeout(() => {
             try {
                 const results = simulateDnsLookup(domain, currentRecordType);
@@ -75,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function simulateDnsLookup(domain, type) {
-        // This is a simulation - in a real app, you would call a DNS API
+
         const randomIP = () => `${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
         const randomIPv6 = () => {
             const segments = [];
@@ -181,7 +174,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 throw new Error(`Unsupported record type: ${type}`);
         }
         
-        // Simulate additional domain info
         updateDomainInfo(domain);
         
         return results;
@@ -241,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function isValidDomain(domain) {
-        // Simple domain validation - in production, use a more robust regex
         return /^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i.test(domain);
     }
     
@@ -249,11 +240,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const table = document.getElementById('result-table');
         let textToCopy = 'DNS Lookup Results\n\n';
         
-        // Add headers
         const headers = table.querySelectorAll('th');
         textToCopy += Array.from(headers).map(header => header.textContent).join('\t') + '\n';
         
-        // Add rows
         const rows = table.querySelectorAll('tbody tr');
         rows.forEach(row => {
             const cells = row.querySelectorAll('td');
@@ -270,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function addToHistory(domain, type) {
-        // Check if this lookup is already in history
         const existingIndex = lookupHistory.findIndex(
             item => item.domain === domain && item.type === type
         );
@@ -280,22 +268,18 @@ document.addEventListener('DOMContentLoaded', function() {
             lookupHistory.splice(existingIndex, 1);
         }
         
-        // Add new entry to the beginning of the array
         lookupHistory.unshift({
             domain,
             type,
             timestamp: new Date().toISOString()
         });
         
-        // Keep only the last 10 items
         if (lookupHistory.length > 10) {
             lookupHistory = lookupHistory.slice(0, 10);
         }
         
-        // Save to localStorage
         localStorage.setItem('dnsLookupHistory', JSON.stringify(lookupHistory));
         
-        // Update UI
         renderHistory();
     }
     
