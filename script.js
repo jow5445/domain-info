@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
             this.classList.add('active');
             currentRecordType = this.dataset.type;
 
-            // If there's already a domain in the input, perform lookup
             if (domainInput.value.trim()) {
                 performLookup();
             }

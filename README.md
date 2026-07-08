@@ -1,4 +1,4 @@
-# DNS Lookup Tool
+# [DNS Lookup Tool](https://jow5445.github.io/domain-info)
 
 A responsive DNS Lookup Tool built with HTML, CSS, and Vanilla JavaScript. The application allows users to look up different DNS record types, view simulated DNS information, copy lookup results, and store recent searches locally in the browser.
 
