@@ -7,7 +7,7 @@ This project is ideal as a frontend template for a real DNS lookup service or fo
 ---
 
 ## Preview
-<img width="3840" height="2160" alt="paint-sample-ss" src="https://cdn.hackclub.com/019f3f95-1bc0-7695-864a-4c222f7d0c49/TextToSpeechApp.png" />
+<img width="3840" height="2160" alt="paint-sample-ss" src="https://cdn.hackclub.com/019f42c2-4295-7f4e-bdde-39a87bf6bb92/Screenshot%20From%202026-07-08%2020-12-04.png" />
 
 
 ## Features
