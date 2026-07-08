@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updateDomainInfo(domain) {
-        // Simulate domain information
+
         const registrars = ['GoDaddy', 'Namecheap', 'Google Domains', 'Cloudflare', 'Name.com'];
         const isps = ['Cloudflare', 'Amazon AWS', 'Google Cloud', 'Microsoft Azure', 'DigitalOcean'];
         const locations = ['New York, US', 'London, UK', 'Tokyo, JP', 'Sydney, AU', 'Frankfurt, DE'];
@@ -264,7 +264,6 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         if (existingIndex !== -1) {
-            // Remove existing entry to add it to the top
             lookupHistory.splice(existingIndex, 1);
         }
 
