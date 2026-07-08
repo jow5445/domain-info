@@ -155,7 +155,8 @@ header p {
     margin-bottom: 1rem;
 }
 
-.result-table th, .result-table td {
+.result-table th,
+.result-table td {
     padding: 0.75rem 1rem;
     text-align: left;
     border-bottom: 1px solid #eee;
@@ -251,8 +252,13 @@ header p {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .additional-info {
