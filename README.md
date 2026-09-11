@@ -40,19 +40,6 @@ This project is ideal as a frontend template for a real DNS lookup service or fo
 
 ---
 
-## Project Structure
-
-```
-dns-lookup-tool/
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
-
----
-
 ## Getting Started
 
 Clone the repository:
