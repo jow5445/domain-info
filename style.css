@@ -87,7 +87,7 @@ header p {
     transition: var(--transition);
 }
 
-.input-group button:hover {
+.input-group button: hover {
     background-color: var(--secondary-color);
 }
 
