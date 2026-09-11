@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const clearHistoryBtn = document.getElementById('clear-history');
 
     let currentRecordType = 'A';
-
     let lookupHistory = JSON.parse(localStorage.getItem('dnsLookupHistory')) || [];
     renderHistory();
 
